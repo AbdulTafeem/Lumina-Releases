@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumina Music — Refracted Through Liquid Glass | Made by Tafeem</title>
+  <meta name="description" content="Download Lumina Music v1.0.0 for Android. Engineered with Real iOS 26 Liquid Glass optics and Material 3 Expressive design. Made by Tafeem (@AbdulTafeem)." />
+  <!-- Ultra-Premium 4K-Style Liquid Glass Squircle Browser Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='10' y1='8' x2='118' y2='120' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFFFFF'/%3E%3Cstop offset='50%25' stop-color='%23FFF4F0'/%3E%3Cstop offset='100%25' stop-color='%23E8F0FF'/%3E%3C/linearGradient%3E%3ClinearGradient id='rim' x1='8' y1='8' x2='120' y2='120' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FF6B3D'/%3E%3Cstop offset='50%25' stop-color='%236366F1'/%3E%3Cstop offset='100%25' stop-color='%2325529B'/%3E%3C/linearGradient%3E%3ClinearGradient id='ribbonA' x1='38' y1='26' x2='76' y2='96' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FF7A4D'/%3E%3Cstop offset='100%25' stop-color='%23E04419'/%3E%3C/linearGradient%3E%3ClinearGradient id='ribbonB' x1='46' y1='56' x2='96' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%234F46E5'/%3E%3Cstop offset='100%25' stop-color='%231E4287'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='8' y='8' width='112' height='112' rx='32' fill='url(%23bg)' stroke='url(%23rim)' stroke-width='5'/%3E%3Cpath d='M42 30C42 26.7 45.7 24.8 48.4 26.6L88 53.6C90.4 55.2 90.4 58.8 88 60.4L56 82.2V39.5L42 30Z' fill='url(%23ribbonA)'/%3E%3Cpath d='M42 30L56 39.5V82.2L88 60.4C90.4 62 90.4 65.6 88 67.2L48.4 94.2C45.7 96 42 94.1 42 90.8V30Z' fill='url(%23ribbonB)' fill-opacity='0.92'/%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,700;1,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-pure: #FFFFFF;
+      --bg-alabaster: #FAFAFA;
+      --bg-warm-tint: #FFF7F5;
+      --ink-espresso: #2D1814;
+      --ink-slate: #111827;
+      --accent-coral: #FF6B3D;
+      --accent-cobalt: #25529B;
+      --glass-border: rgba(255, 255, 255, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-pure);
+      color: var(--ink-slate);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    .font-serif-editorial {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .font-mono-code {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Soft Daylight Aurora Orbs */
+    .daylight-orb {
+      position: fixed;
+      border-radius: 9999px;
+      filter: blur(110px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+      animation: floatDaylight 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatDaylight {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(35px, -25px, 0) scale(1.06); }
+      100% { transform: translate3d(-25px, 20px, 0) scale(0.96); }
+    }
+
+    /* Crisp White iOS 26 Liquid Glass Surface */
+    .liquid-glass-white {
+      position: relative;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.86) 0%,
+        rgba(255, 250, 248, 0.72) 52%,
+        rgba(240, 246, 255, 0.78) 100%
+      );
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 18px 45px -10px rgba(45, 24, 20, 0.08),
+        0 4px 16px -2px rgba(37, 82, 155, 0.05),
+        inset 0 1.5px 1.5px rgba(255, 255, 255, 1),
+        inset 0 -1px 1px rgba(45, 24, 20, 0.04);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.35s ease;
+    }
+
+    .liquid-glass-white::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 107, 61, 0.22) 45%,
+        rgba(37, 82, 155, 0.22) 80%,
+        rgba(255, 255, 255, 0.9) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .liquid-glass-white:hover {
+      box-shadow:
+        0 26px 60px -12px rgba(45, 24, 20, 0.13),
+        0 8px 24px -4px rgba(255, 107, 61, 0.10),
+        inset 0 1.5px 2px rgba(255, 255, 255, 1);
+    }
+
+    /* Interactive Specular Spotlight */
+    .spotlight-surface {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-surface::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        380px circle at var(--card-x, 50%) var(--card-y, 50%),
+        rgba(255, 107, 61, 0.08),
+        transparent 65%
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .spotlight-surface:hover::after {
+      opacity: 1;
+    }
+
+    /* Expressive Gradient Typography */
+    .text-lumina-gradient {
+      background: linear-gradient(125deg, #2D1814 0%, #FF6B3D 45%, #25529B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 180% auto;
+      animation: gradientFlow 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* 3D Phone Frame Perspective */
+    .phone-stage {
+      perspective: 1500px;
+    }
+
+    .phone-bezel-silver {
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      background: linear-gradient(145deg, #FFFFFF 0%, #F1F3F6 50%, #E4E7EC 100%);
+      box-shadow:
+        0 35px 80px -18px rgba(45, 24, 20, 0.18),
+        0 10px 25px -5px rgba(37, 82, 155, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.08),
+        inset 0 2px 3px rgba(255, 255, 255, 1);
+    }
+
+    /* Scalloped 12-Point Star Mask (Editorial Player) */
+    .scalloped-star {
+      clip-path: polygon(
+        50% 0%, 61% 10%, 75% 7%, 80% 20%, 93% 25%, 90% 39%,
+        100% 50%, 90% 61%, 93% 75%, 80% 80%, 75% 93%, 61% 90%,
+        50% 100%, 39% 90%, 25% 93%, 20% 80%, 7% 75%, 10% 61%,
+        0% 50%, 10% 39%, 7% 25%, 20% 20%, 25% 7%, 39% 10%
+      );
+    }
+
+    /* Scroll Reveal Motion Choreography */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px) scale(0.985);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Subtle Architectural Dot Grid */
+    .bg-dot-matrix {
+      background-image: radial-gradient(rgba(45, 24, 20, 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 35%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, #000 35%, transparent 100%);
+    }
+
+    /* Custom Range Slider */
+    input[type="range"].daylight-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(45, 24, 20, 0.1);
+      height: 6px;
+      border-radius: 999px;
+      outline: none;
+    }
+
+    input[type="range"].daylight-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #FF6B3D;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 4px 14px rgba(255, 107, 61, 0.45);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    input[type="range"].daylight-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.16);
+    }
+  </style>
+</head>
+<body class="selection:bg-[#FF6B3D]/20 selection:text-[#2D1814]">
+
+  <!-- Soft Warm Alabaster & Cobalt Daylight Orbs -->
+  <div class="daylight-orb w-[520px] h-[520px] bg-[#FFD8CC]/70 -top-28 -left-24"></div>
+  <div class="daylight-orb w-[480px] h-[480px] bg-[#DCE8FF]/80 top-1/4 -right-24" style="animation-delay: -6s;"></div>
+  <div class="daylight-orb w-[460px] h-[460px] bg-[#FFE6DF]/75 bottom-12 left-1/4" style="animation-delay: -12s;"></div>
+  <div class="fixed inset-0 bg-dot-matrix pointer-events-none z-0"></div>
+
+  <!-- FLOATING FROSTED WHITE LIQUID GLASS NAVBAR -->
+  <header class="fixed top-4 inset-x-0 z-50 px-4 sm:px-6">
+    <nav class="max-w-5xl mx-auto liquid-glass-white rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between">
+      <!-- Ultra-Premium 4K-Style Liquid Glass Squircle & 3D Luminous Play-Ribbon Monogram -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative w-11 h-11 rounded-[15px] flex items-center justify-center bg-gradient-to-br from-white via-[#FFF6F2] to-[#EAF1FF] border border-white shadow-[0_10px_24px_rgba(45,24,20,0.12),0_2px_8px_rgba(255,107,61,0.18),inset_0_2px_2.5px_rgba(255,255,255,1)] group-hover:scale-105 group-hover:rotate-[-2deg] transition-all duration-300">
+          <svg viewBox="0 0 128 128" class="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- iOS 26 Chromatic Crystal Bezel Rim -->
+              <linearGradient id="navSquircleRim" x1="10" y1="8" x2="118" y2="120" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="28%" stop-color="#FF6B3D" stop-opacity="0.75" />
+                <stop offset="68%" stop-color="#6366F1" stop-opacity="0.7" />
+                <stop offset="100%" stop-color="#25529B" stop-opacity="0.85" />
+              </linearGradient>
+              <!-- Frosted Crystal Interior Fill -->
+              <linearGradient id="navSquircleGlass" x1="14" y1="12" x2="114" y2="116" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.96" />
+                <stop offset="55%" stop-color="#FFF5F1" stop-opacity="0.82" />
+                <stop offset="100%" stop-color="#E7EFFD" stop-opacity="0.92" />
+              </linearGradient>
+              <!-- Top-Left Specular Glass Sheen -->
+              <linearGradient id="navSpecularSheen" x1="18" y1="14" x2="78" y2="74" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+              </linearGradient>
+              <!-- 3D Folded Play-Ribbon Upper Facet (Coral Sunset) -->
+              <linearGradient id="ribbonCoral" x1="38" y1="24" x2="90" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FF875E" />
+                <stop offset="55%" stop-color="#FF6B3D" />
+                <stop offset="100%" stop-color="#D94116" />
+              </linearGradient>
+              <!-- 3D Folded 'L' + Lower Ribbon Facet (Cobalt Iris) -->
+              <linearGradient id="ribbonCobalt" x1="38" y1="34" x2="88" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#4F46E5" />
+                <stop offset="55%" stop-color="#25529B" />
+                <stop offset="100%" stop-color="#17356B" />
+              </linearGradient>
+              <!-- Soft Internal Glass Drop Shadow -->
+              <filter id="ribbonDepth" x="24" y="18" width="84" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feDropShadow dx="0" dy="5" stdDeviation="4.5" flood-color="#2D1814" flood-opacity="0.18" />
+              </filter>
+            </defs>
+
+            <!-- Outer iOS 26 Liquid Glass Squircle Tile -->
+            <rect x="10" y="10" width="108" height="108" rx="30" fill="url(#navSquircleGlass)" stroke="url(#navSquircleRim)" stroke-width="3.5" />
+            <!-- Inner Specular Bezel Glint -->
+            <rect x="14" y="14" width="100" height="100" rx="26" stroke="url(#navSpecularSheen)" stroke-width="2.2" />
+
+            <!-- Sculptural 3D Folded 'L' + Play Ribbon Monogram -->
+            <g filter="url(#ribbonDepth)">
+              <!-- Upper Luminous Play Wing -->
+              <path d="M43 32.5C43 28.4 47.6 26 51 28.3L89.5 54.4C92.5 56.4 92.5 60.8 89.5 62.8L58 84.1V42.6L43 32.5Z"
+                    fill="url(#ribbonCoral)" />
+              <!-- Lower Sculpted 'L' Spine & Wave Fold -->
+              <path d="M43 32.5L58 42.6V84.1L89.5 62.8C92.5 64.8 92.5 69.2 89.5 71.2L51 97.3C47.6 99.6 43 97.2 43 93.1V32.5Z"
+                    fill="url(#ribbonCobalt)" fill-opacity="0.94" />
+              <!-- Crisp 1px Specular Fold Crease Highlight -->
+              <path d="M44.5 33.8L57.5 42.5V82.5" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1.6" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-[#2D1814] tracking-tight text-base leading-none">Lumina</span>
+          <span class="text-[10px] font-bold text-[#FF6B3D] tracking-wider uppercase mt-0.5">Made by Tafeem</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-[#5C4945]">
+        <a href="#screenshots" class="hover:text-[#2D1814] transition-colors">Screenshots</a>
+        <a href="#styles-wheel" class="hover:text-[#2D1814] transition-colors">8 Player Styles</a>
+        <a href="#optics" class="hover:text-[#2D1814] transition-colors">Liquid Optics</a>
+        <a href="#creator" class="hover:text-[#2D1814] transition-colors">Creator</a>
+      </div>
+
+      <!-- Primary CTA Pill -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openDownloadModal()" class="px-4 sm:px-5 py-2.5 rounded-full bg-[#2D1814] text-white font-semibold text-xs sm:text-sm shadow-[0_8px_22px_rgba(45,24,20,0.22)] hover:bg-[#FF6B3D] hover:scale-[1.03] active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/>
+          </svg>
+          <span>Download APK</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="relative z-10 pt-28 sm:pt-36 pb-20 px-4 sm:px-6">
+    <section class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <!-- Left Hero Copy -->
+      <div class="lg:col-span-7 text-center lg:text-left space-y-6 reveal-up is-visible">
+        <!-- Status & Creator Pill -->
+        <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2.5 px-4 py-1.5 rounded-full liquid-glass-white text-xs font-semibold text-[#2D1814]">
+          <span class="w-2 h-2 rounded-full bg-[#FF6B3D] animate-pulse"></span>
+          <span>v1.0.0 Release · 8.72 MB</span>
+          <span class="text-[#2D1814]/25">•</span>
+          <span class="text-[#25529B] font-bold">Made by Tafeem</span>
+        </div>
+
+        <!-- Kinetic Display Headline -->
+        <h1 class="text-4xl sm:text-6xl lg:text-[64px] font-black tracking-tight leading-[1.04] text-[#2D1814]">
+          Pure Sound, Refracted in <span class="text-lumina-gradient">Liquid Glass.</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-base sm:text-lg text-[#5C4945] max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+          An ultra-expressive Android music client uniting <strong class="text-[#2D1814] font-semibold">Real iOS 26 Liquid Glass</strong> AGSL optics, <strong class="text-[#2D1814] font-semibold">Material 3 Expressive</strong> shapes, and 8 interactive player themes.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <button onclick="openDownloadModal()" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#FF6B3D] to-[#E85325] text-white font-bold text-sm sm:text-base shadow-[0_16px_38px_rgba(255,107,61,0.34)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3.5 cursor-pointer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            <div class="text-left">
+              <div class="leading-tight">Download Lumina v1.0.0</div>
+              <div class="text-[11px] font-medium text-white/90">Android ARM64 · 8.72 MB · Direct Release APK</div>
+            </div>
+          </button>
+
+          <a href="#screenshots" class="w-full sm:w-auto px-6 py-4 rounded-2xl liquid-glass-white text-[#2D1814] font-bold text-sm sm:text-base hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
+            <span>Explore App Screens</span>
+            <svg class="w-4 h-4 text-[#FF6B3D]" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Craft & Spec Highlights -->
+        <div class="grid grid-cols-3 gap-4 pt-5 max-w-lg mx-auto lg:mx-0 border-t border-[#2D1814]/10">
+          <div>
+            <div class="text-lg sm:text-xl font-extrabold text-[#2D1814]">8 Styles</div>
+            <div class="text-xs font-medium text-[#7A6560]">Interactive Player Wheel</div>
+          </div>
+          <div>
+            <div class="text-lg sm:text-xl font-extrabold text-[#25529B]">AGSL 13+</div>
+            <div class="text-xs font-medium text-[#7A6560]">iOS 26 Glass Refraction</div>
+          </div>
+          <div>
+            <div class="text-lg sm:text-xl font-extrabold text-[#FF6B3D]">Tafeem</div>
+            <div class="text-xs font-medium text-[#7A6560]">Creator & Developer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Interactive 3D Silver/White Flagship Phone Mockup (Matches Editorial Player Screenshot) -->
+      <div class="lg:col-span-5 flex justify-center phone-stage reveal-up is-visible" id="heroPhoneStage">
+        <div id="heroPhoneCard" class="phone-bezel-silver relative w-[300px] sm:w-[320px] h-[630px] rounded-[48px] p-3 select-none">
+          <!-- Camera Punch-hole -->
+          <div class="absolute top-5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#111827] z-30"></div>
+
+          <!-- Inner Screen (Hero Full-Bleed Player Screenshot) -->
+          <div class="relative w-full h-full rounded-[38px] overflow-hidden bg-[#D6E0EE]">
+            <img src="50-player-hero.png" alt="Lumina Hero Player" class="w-full h-full object-cover block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL APP SCREENSHOTS GALLERY (ALL 6 SCREENS) -->
+    <section id="screenshots" class="max-w-6xl mx-auto pt-28 sm:pt-36">
+      <div class="text-center max-w-2xl mx-auto space-y-3 reveal-up">
+        <span class="px-3.5 py-1 rounded-full liquid-glass-white text-xs font-bold text-[#FF6B3D] uppercase tracking-wider">Real App Screenshots</span>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-[#2D1814]">Every Screen, Alive with Motion.</h2>
+        <p class="text-[#5C4945] text-sm sm:text-base">
+          Captured directly from <strong class="text-[#2D1814]">Lumina Music</strong> — showcasing Material 3 Expressive typography, dynamic album-art tinting, and iOS 26 Liquid Glass navigation pills.
+        </p>
+      </div>
+
+      <!-- 6-Phone Grid matching the user's exact 6 screenshots -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+
+        <!-- SCREEN 1: Home & Your Mix -->
+        <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up">
+          <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
+            <div class="relative rounded-[28px] overflow-hidden bg-[#FFF6F3] aspect-[9/19.2] flex flex-col justify-between">
+              <img src="01-home-music-your-mix.png"
+                   alt="Lumina Home Screen — Your Mix"
+                   class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <!-- Built-in High-Fidelity Fallback UI -->
+              <div style="display:none;" class="w-full h-full flex-col justify-between p-3.5 bg-[#FFF6F3] text-[#2D1814]">
+                <div class="flex items-center justify-between">
+                  <span class="w-6 h-6 rounded-full bg-[#FBE4DD] flex items-center justify-center text-[10px]">👤</span>
+                  <div class="flex gap-1">
+                    <span class="w-6 h-6 rounded-full bg-[#FBE4DD] flex items-center justify-center text-[10px]">↓</span>
+                    <span class="w-6 h-6 rounded-full bg-[#FBE4DD] flex items-center justify-center text-[10px]">⚙</span>
+                    <span class="px-2 h-6 rounded-full bg-[#FF6B3D] text-white flex items-center text-[10px] font-bold">♪</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <div class="text-2xl font-black leading-none tracking-tight">Your<br/>Mix</div>
+                    <div class="text-[9px] text-[#7A6560] mt-1">Ruth B., Jaymes Young</div>
+                  </div>
+                  <div class="w-11 h-11 rounded-full bg-[#FF6B3D] text-[#2D1814] flex items-center justify-center font-bold shadow">▶</div>
+                </div>
+                <div class="my-auto relative h-44 flex items-center justify-center">
+                  <div class="w-14 h-14 rounded-full bg-zinc-800 absolute top-1 left-1 border-2 border-white"></div>
+                  <div class="w-32 h-40 rounded-full bg-gradient-to-tr from-zinc-300 via-zinc-100 to-white rotate-12 border-2 border-white shadow-md"></div>
+                  <div class="w-14 h-14 rounded-full bg-emerald-800 absolute bottom-1 right-1 border-2 border-white"></div>
+                </div>
+                <div class="rounded-full bg-[#FBE4DD]/95 px-3 py-1.5 flex items-center justify-around text-[9px] font-bold">
+                  <span class="px-2.5 py-1 rounded-full bg-[#FF6B3D] text-[#2D1814]">⌂ Home</span>
+                  <span>⌕</span>
+                  <span>▤</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5 px-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-[#2D1814] text-base">Home & Your Mix</h3>
+              <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#FF6B3D]">M3 Expressive</span>
+            </div>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Editorial hero typography with organic pill collage art and a floating Liquid Glass navigation capsule.</p>
+          </div>
+        </div>
+
+        <!-- SCREEN 2: Editorial Player -->
+        <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 70ms;">
+          <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
+            <div class="relative rounded-[28px] overflow-hidden bg-[#E9EEF7] aspect-[9/19.2] flex flex-col justify-between">
+              <img src="03-player-editorial.png"
+                   alt="Lumina Editorial Player Screen"
+                   class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <!-- Built-in High-Fidelity Fallback UI -->
+              <div style="display:none;" class="w-full h-full flex-col justify-between p-3.5 bg-[#E9EEF7] text-[#25529B]">
+                <div class="flex justify-between">
+                  <span class="w-6 h-6 rounded-full bg-[#25529B] text-white flex items-center justify-center text-[10px]">⌄</span>
+                  <span class="w-6 h-6 rounded-full bg-[#25529B] text-white flex items-center justify-center text-[10px]">⋮</span>
+                </div>
+                <div class="w-32 h-32 mx-auto scalloped-star bg-[#25529B] shadow-lg"></div>
+                <div>
+                  <div class="font-serif-editorial italic font-extrabold text-2xl leading-none">Espresso</div>
+                  <div class="text-[8px] font-bold tracking-widest uppercase mt-1">SABRINA CARPENTER</div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex-1 h-8 rounded-full bg-[#25529B] text-white flex items-center justify-center text-[9px] font-bold">PAUSE</div>
+                  <div class="w-8 h-8 rounded-full bg-[#25529B] text-white flex items-center justify-center text-[10px]">⏭</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5 px-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-[#2D1814] text-base">Editorial Player</h3>
+              <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#EBF2FF] text-[#25529B]">Scalloped Art</span>
+            </div>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">12-point scalloped cover framing, italic magazine serif headlines, and an animated wavy seekbar.</p>
+          </div>
+        </div>
+
+        <!-- SCREEN 3: Instant Search -->
+        <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 140ms;">
+          <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
+            <div class="relative rounded-[28px] overflow-hidden bg-[#FFF8F6] aspect-[9/19.2] flex flex-col justify-between">
+              <img src="07-search-music-songs.png"
+                   alt="Lumina Instant Search Screen"
+                   class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <!-- Built-in High-Fidelity Fallback UI -->
+              <div style="display:none;" class="w-full h-full flex-col justify-between p-3.5 bg-[#FFF8F6] text-[#2D1814]">
+                <div class="space-y-2">
+                  <div class="text-lg font-black">Search</div>
+                  <div class="rounded-full bg-[#F5E6E1] px-3 py-1.5 text-[10px] font-semibold flex justify-between">
+                    <span>⌕ CAS</span><span>✕</span>
+                  </div>
+                  <div class="flex gap-1 text-[8px] font-bold">
+                    <span class="px-2 py-1 rounded-full bg-[#9E3208] text-white">Songs</span>
+                    <span class="px-2 py-1 rounded-full bg-[#FBE4DD]">Artists</span>
+                    <span class="px-2 py-1 rounded-full bg-[#FBE4DD]">Albums</span>
+                  </div>
+                </div>
+                <div class="space-y-1.5 my-auto">
+                  <div class="p-2 rounded-xl bg-[#FBE4DD]/60 flex items-center justify-between text-[9px]">
+                    <div><div class="font-bold">Apocalypse</div><div class="text-[8px] text-[#7A6560]">Cigarettes After Sex</div></div>
+                    <span>▶</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-[#FBE4DD]/60 flex items-center justify-between text-[9px]">
+                    <div><div class="font-bold">Cry</div><div class="text-[8px] text-[#7A6560]">Cigarettes After Sex</div></div>
+                    <span>▶</span>
+                  </div>
+                  <div class="p-2 rounded-xl bg-[#FBE4DD]/60 flex items-center justify-between text-[9px]">
+                    <div><div class="font-bold">Sunsetz</div><div class="text-[8px] text-[#7A6560]">Cigarettes After Sex</div></div>
+                    <span>▶</span>
+                  </div>
+                </div>
+                <div class="rounded-full bg-[#FBE4DD] px-3 py-1.5 flex items-center justify-around text-[9px] font-bold">
+                  <span>⌂</span>
+                  <span class="px-2.5 py-1 rounded-full bg-[#FF6B3D] text-[#2D1814]">⌕ Search</span>
+                  <span>▤</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5 px-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-[#2D1814] text-base">Instant Music Search</h3>
+              <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#9E3208]">Fast Stream</span>
+            </div>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Frosted search capsule with instant filtering across Songs, Artists, Albums, and Playlists.</p>
+          </div>
+        </div>
+
+        <!-- SCREEN 4: Radial Player Style Wheel -->
+        <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up">
+          <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
+            <div class="relative rounded-[28px] overflow-hidden bg-[#F7F3F2] aspect-[9/19.2] flex flex-col justify-between">
+              <img src="09-player-style-wheel.png"
+                   alt="Lumina Radial Player Style Wheel"
+                   class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <!-- Built-in High-Fidelity Fallback UI -->
+              <div style="display:none;" class="w-full h-full flex-col items-center justify-center p-3.5 bg-[#F7F3F2] text-[#2D1814] relative">
+                <div class="w-9 h-9 rounded-full bg-[#F9D8D3] flex items-center justify-center text-xs mb-3">▶</div>
+                <div class="flex items-center justify-between w-full px-2">
+                  <span class="w-9 h-9 rounded-2xl bg-[#F9D8D3] flex items-center justify-center text-xs">◉</span>
+                  <div class="text-center">
+                    <div class="text-[8px] text-[#7A6560]">Player style</div>
+                    <div class="text-sm font-black">Editorial</div>
+                  </div>
+                  <span class="w-10 h-10 rounded-2xl bg-[#4A4443] text-white flex items-center justify-center text-xs shadow">▤</span>
+                </div>
+                <div class="flex gap-6 mt-3">
+                  <span class="w-9 h-9 rounded-2xl bg-[#F9D8D3] flex items-center justify-center text-xs">❖</span>
+                  <span class="w-9 h-9 rounded-2xl bg-[#F9D8D3] flex items-center justify-center text-xs">▣</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5 px-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-[#2D1814] text-base">Radial Style Wheel</h3>
+              <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#FF6B3D]">Long-Press</span>
+            </div>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Long-press album artwork in any player to summon a frosted radial wheel and morph layouts live.</p>
+          </div>
+        </div>
+
+        <!-- SCREEN 5: 8 Expressive Player Styles Grid -->
+        <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 70ms;">
+          <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
+            <div class="relative rounded-[28px] overflow-hidden bg-[#FFF8F6] aspect-[9/19.2] flex flex-col justify-between">
+              <img src="27-settings-player-styles.png"
+                   alt="Lumina 8 Player Styles Settings"
+                   class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <!-- Built-in High-Fidelity Fallback UI -->
+              <div style="display:none;" class="w-full h-full flex-col justify-between p-3.5 bg-[#FFF8F6] text-[#2D1814]">
+                <div class="flex items-center gap-2 font-black text-base">
+                  <span class="w-6 h-6 rounded-full bg-[#FBE4DD] flex items-center justify-center text-xs">←</span>
+                  <span>Player</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 my-auto">
+                  <div class="p-2 rounded-2xl bg-[#FBE4DD]/60 text-[9px] font-bold">Classic</div>
+                  <div class="p-2 rounded-2xl bg-[#FBE4DD]/60 text-[9px] font-bold">Gesture</div>
+                  <div class="p-2 rounded-2xl bg-[#FF7A50] text-[#2D1814] border border-[#9E3208] text-[9px] font-extrabold">Editorial ✓</div>
+                  <div class="p-2 rounded-2xl bg-[#FBE4DD]/60 text-[9px] font-bold">Canvas</div>
+                  <div class="p-2 rounded-2xl bg-[#FBE4DD]/60 text-[9px] font-bold">Bento</div>
+                  <div class="p-2 rounded-2xl bg-[#FBE4DD]/60 text-[9px] font-bold">Sticker</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5 px-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-[#2D1814] text-base">8 Expressive Layouts</h3>
+              <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#EBF2FF] text-[#25529B]">Customizable</span>
+            </div>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Choose between Classic, Gesture, Editorial, Canvas, Bento, Sticker, Morph, and Rotary Dial.</p>
+          </div>
+        </div>
+
+        <!-- SCREEN 6: Dynamic Album Art Colors -->
+        <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 140ms;">
+          <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
+            <div class="relative rounded-[28px] overflow-hidden bg-[#FFF8F6] aspect-[9/19.2] flex flex-col justify-between">
+              <img src="28-settings-player-styles-scrolled.png"
+                   alt="Lumina Dynamic Album Art Colors"
+                   class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <!-- Built-in High-Fidelity Fallback UI -->
+              <div style="display:none;" class="w-full h-full flex-col justify-between p-3.5 bg-[#FFF8F6] text-[#2D1814]">
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="p-2.5 rounded-2xl bg-[#FBE4DD]/70 text-[9px] font-bold">Bento</div>
+                  <div class="p-2.5 rounded-2xl bg-[#FBE4DD]/70 text-[9px] font-bold">Sticker</div>
+                  <div class="p-2.5 rounded-2xl bg-[#FBE4DD]/70 text-[9px] font-bold">Morph</div>
+                  <div class="p-2.5 rounded-2xl bg-[#FBE4DD]/70 text-[9px] font-bold">Dial</div>
+                </div>
+                <div class="p-2.5 rounded-2xl bg-[#F5E6E1] text-[8px] text-[#7A6560]">
+                  Long-press the artwork in any player to switch styles from the wheel.
+                </div>
+                <div class="p-3 rounded-2xl bg-[#FBE4DD] flex items-center justify-between">
+                  <div>
+                    <div class="text-[10px] font-extrabold">Album Art Colors</div>
+                    <div class="text-[8px] text-[#7A6560]">Tint buttons from cover</div>
+                  </div>
+                  <div class="w-8 h-4 rounded-full bg-[#9E3208] p-0.5 flex justify-end">
+                    <span class="w-3 h-3 rounded-full bg-white"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pt-5 px-1">
+            <div class="flex items-center justify-between">
+              <h3 class="font-extrabold text-[#2D1814] text-base">Adaptive Cover Tinting</h3>
+              <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#FF6B3D]">Dynamic Color</span>
+            </div>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Automatically extracts dominant hues from every album cover to tint controls, pills, and glass rims.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE 8-STYLE PLAYER WHEEL PREVIEW -->
+    <section id="styles-wheel" class="max-w-5xl mx-auto pt-28 sm:pt-36 reveal-up">
+      <div class="liquid-glass-white rounded-[38px] p-6 sm:p-10 lg:p-12">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <span class="px-3.5 py-1 rounded-full bg-[#FFF0EB] text-xs font-bold text-[#FF6B3D] uppercase tracking-wider">Interactive Style Switcher</span>
+            <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-[#2D1814]">
+              8 Player Styles. One Long-Press Away.
+            </h2>
+            <p class="text-sm text-[#5C4945] leading-relaxed">
+              Tap any style pill below to preview how Lumina transforms its geometry, cover shape, and tactile controls without interrupting playback.
+            </p>
+
+            <!-- 8 Interactive Style Buttons -->
+            <div class="flex flex-wrap gap-2 pt-2" id="styleSelectorPills">
+              <button onclick="selectPlayerStyle('Editorial')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#2D1814] text-white shadow cursor-pointer transition-all" data-style="Editorial">Editorial</button>
+              <button onclick="selectPlayerStyle('Classic')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Classic">Classic</button>
+              <button onclick="selectPlayerStyle('Gesture')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Gesture">Gesture</button>
+              <button onclick="selectPlayerStyle('Canvas')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Canvas">Canvas</button>
+              <button onclick="selectPlayerStyle('Bento')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Bento">Bento</button>
+              <button onclick="selectPlayerStyle('Sticker')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Sticker">Sticker</button>
+              <button onclick="selectPlayerStyle('Morph')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Morph">Morph</button>
+              <button onclick="selectPlayerStyle('Dial')" class="style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all" data-style="Dial">Dial</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Preview Card -->
+          <div class="lg:col-span-6">
+            <div id="stylePreviewCard" class="rounded-[30px] p-6 bg-[#E9EEF7] border border-white shadow-inner transition-all duration-300 flex flex-col justify-between h-64">
+              <div class="flex items-center justify-between">
+                <span id="styleBadge" class="px-3 py-1 rounded-full bg-[#25529B] text-white text-[11px] font-bold">Editorial Style</span>
+                <span class="text-xs font-semibold text-[#25529B]">120Hz Spring Physics</span>
+              </div>
+              <div class="my-auto flex items-center gap-5">
+                <div id="styleShapeBox" class="w-24 h-24 scalloped-star bg-[#25529B] shrink-0 transition-all duration-500 shadow-lg"></div>
+                <div>
+                  <h3 id="styleTitle" class="text-xl font-black text-[#25529B]">Two-Tone Magazine Layout</h3>
+                  <p id="styleDesc" class="text-xs text-[#25529B]/80 mt-1 leading-relaxed">
+                    Scalloped 12-point star cover framing paired with bold italic serif headlines and wavy progress scrubbing.
+                  </p>
+                </div>
+              </div>
+              <div class="text-[11px] font-mono-code font-semibold text-[#25529B]/70">
+                Long-press cover art in Lumina to switch anytime
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DAYLIGHT LIQUID GLASS OPTICAL LAB -->
+    <section id="optics" class="max-w-5xl mx-auto pt-28 sm:pt-36 reveal-up">
+      <div class="liquid-glass-white rounded-[38px] p-6 sm:p-10 lg:p-12">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6 space-y-4">
+            <span class="px-3.5 py-1 rounded-full bg-[#EBF2FF] text-xs font-bold text-[#25529B] uppercase tracking-wider">Optical Pipeline</span>
+            <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-[#2D1814]">
+              Real iOS 26 Liquid Glass on Android 13+.
+            </h2>
+            <p class="text-sm text-[#5C4945] leading-relaxed">
+              Lumina chains <code class="font-mono-code text-[#25529B] font-semibold">RenderEffect.createBlurEffect</code> with a custom <code class="font-mono-code text-[#FF6B3D] font-semibold">AGSL RuntimeShader</code> to bend underlying album colors along curved pill bezels with crisp top-left specular rims.
+            </p>
+
+            <div class="pt-2 space-y-2.5">
+              <div class="flex justify-between text-xs font-bold">
+                <span class="text-[#2D1814]">Adjust Frosted Blur & Bezel Glint</span>
+                <span id="opticsValueLabel" class="font-mono-code text-[#FF6B3D]">82% Refraction</span>
+              </div>
+              <input id="opticsSlider" type="range" min="15" max="100" value="82" class="w-full daylight-slider" oninput="updateDaylightOptics(this.value)" />
+            </div>
+          </div>
+
+          <!-- Daylight Glass Demo Stage -->
+          <div class="lg:col-span-6">
+            <div class="relative h-64 rounded-[30px] overflow-hidden flex items-center justify-center p-6 border border-[#2D1814]/10 bg-gradient-to-br from-[#FFF5F2] via-[#FFFFFF] to-[#EDF3FF]">
+              <!-- Vivid Underlying Color Discs -->
+              <div class="w-32 h-32 rounded-full bg-[#FF6B3D] absolute top-4 left-8 opacity-85"></div>
+              <div class="w-36 h-36 rounded-full bg-[#25529B] absolute bottom-3 right-8 opacity-85"></div>
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none font-black text-4xl tracking-tighter text-[#2D1814]/15">
+                LUMINA · 26
+              </div>
+
+              <!-- Live Reactive Frosted White Glass Pill -->
+              <div id="liveDaylightGlass" class="relative z-10 w-full max-w-xs rounded-[28px] px-5 py-4 transition-all duration-150"
+                   style="background: rgba(255,255,255,0.72); backdrop-filter: blur(22px) saturate(180%); -webkit-backdrop-filter: blur(22px) saturate(180%); border: 1.5px solid rgba(255,255,255,0.95); box-shadow: 0 20px 40px rgba(45,24,20,0.14), inset 0 1.5px 2px rgba(255,255,255,1);">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-xs font-extrabold text-[#2D1814]">iOS 26 Liquid Glass Pill</div>
+                    <div class="text-[11px] font-medium text-[#5C4945]">Curved Lens + Specular Bezel</div>
+                  </div>
+                  <div class="w-9 h-9 rounded-2xl bg-[#2D1814] text-white flex items-center justify-center font-mono-code font-bold text-[11px] shadow">
+                    AGSL
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREATOR & DIRECT DOWNLOAD CALLOUT -->
+    <section id="creator" class="max-w-5xl mx-auto pt-28 sm:pt-36 reveal-up">
+      <div class="liquid-glass-white rounded-[38px] p-8 sm:p-12 text-center space-y-6 relative overflow-hidden">
+        <!-- Centered 4K Liquid Glass Squircle Emblem -->
+        <div class="mx-auto w-20 h-20 rounded-[26px] flex items-center justify-center bg-gradient-to-br from-white via-[#FFF6F2] to-[#EAF1FF] border border-white shadow-[0_18px_40px_rgba(45,24,20,0.12),0_4px_14px_rgba(255,107,61,0.18),inset_0_2px_3px_rgba(255,255,255,1)]">
+          <svg viewBox="0 0 128 128" class="w-16 h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="108" height="108" rx="30" fill="url(#navSquircleGlass)" stroke="url(#navSquircleRim)" stroke-width="3.5" />
+            <rect x="14" y="14" width="100" height="100" rx="26" stroke="url(#navSpecularSheen)" stroke-width="2.2" />
+            <g filter="url(#ribbonDepth)">
+              <path d="M43 32.5C43 28.4 47.6 26 51 28.3L89.5 54.4C92.5 56.4 92.5 60.8 89.5 62.8L58 84.1V42.6L43 32.5Z" fill="url(#ribbonCoral)" />
+              <path d="M43 32.5L58 42.6V84.1L89.5 62.8C92.5 64.8 92.5 69.2 89.5 71.2L51 97.3C47.6 99.6 43 97.2 43 93.1V32.5Z" fill="url(#ribbonCobalt)" fill-opacity="0.94" />
+              <path d="M44.5 33.8L57.5 42.5V82.5" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1.6" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#FFF7F5] border border-[#FF6B3D]/25 shadow-sm">
+          <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-[#FF6B3D] to-[#25529B] flex items-center justify-center text-[11px] font-black text-white">T</div>
+          <span class="text-xs sm:text-sm font-bold text-[#2D1814]">Made by Tafeem (@AbdulTafeem)</span>
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-[#2D1814] max-w-2xl mx-auto">
+          Download Lumina Music for Android.
+        </h2>
+
+        <p class="text-sm sm:text-base text-[#5C4945] max-w-xl mx-auto">
+          Lightweight <strong class="text-[#2D1814]">8.72 MB</strong> signed ARM64 release APK. Shareable lyric cards, Standby widgets, Romanized lyrics, and Real iOS 26 Liquid Glass.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <button onclick="openDownloadModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#2D1814] text-white font-bold text-base shadow-[0_14px_34px_rgba(45,24,20,0.24)] hover:bg-[#FF6B3D] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer">
+            Download Lumina v1.0.0 APK (8.72 MB)
+          </button>
+          <a href="mailto:Esrarabdultafeem@gmail.com" class="w-full sm:w-auto px-6 py-4 rounded-2xl liquid-glass-white text-sm font-bold text-[#2D1814] hover:scale-[1.02] transition-all">
+            Contact Tafeem
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER WITH COMPLETE ATTRIBUTION & COPYRIGHTS -->
+  <footer class="relative z-10 border-t border-[#2D1814]/10 bg-[#FAFAFA] mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-center md:justify-start gap-2.5">
+          <svg viewBox="0 0 128 128" class="w-7 h-7 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="108" height="108" rx="30" fill="url(#navSquircleGlass)" stroke="url(#navSquircleRim)" stroke-width="4" />
+            <path d="M43 32.5C43 28.4 47.6 26 51 28.3L89.5 54.4C92.5 56.4 92.5 60.8 89.5 62.8L58 84.1V42.6L43 32.5Z" fill="url(#ribbonCoral)" />
+            <path d="M43 32.5L58 42.6V84.1L89.5 62.8C92.5 64.8 92.5 69.2 89.5 71.2L51 97.3C47.6 99.6 43 97.2 43 93.1V32.5Z" fill="url(#ribbonCobalt)" fill-opacity="0.94" />
+          </svg>
+          <span class="font-black text-[#2D1814] text-lg tracking-tight">Lumina Music</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-[#FFF0EB] text-[11px] font-mono-code font-bold text-[#FF6B3D]">v1.0.0</span>
+        </div>
+        <p class="text-sm font-bold text-[#2D1814]">
+          Made by Tafeem (<a href="https://github.com/AbdulTafeem" target="_blank" rel="noopener" class="text-[#25529B] hover:underline">@AbdulTafeem</a>)
+        </p>
+        <p class="text-xs text-[#5C4945]">
+          © 2026 Lumina Music · Made by Tafeem. All Rights Reserved. Built upon GPL-3.0 open-source media foundations.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-[#5C4945]">
+        <a href="#screenshots" class="hover:text-[#2D1814] transition-colors">Screenshots</a>
+        <a href="#styles-wheel" class="hover:text-[#2D1814] transition-colors">8 Player Styles</a>
+        <a href="https://github.com/AbdulTafeem/Lumina-Releases/releases/latest" target="_blank" rel="noopener" class="hover:text-[#FF6B3D] transition-colors">Official Releases</a>
+        <a href="mailto:Esrarabdultafeem@gmail.com" class="hover:text-[#2D1814] transition-colors">Esrarabdultafeem@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLEAN WHITE LIQUID GLASS DOWNLOAD MODAL (No alert() used) -->
+  <div id="downloadModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-[#2D1814]/35 backdrop-blur-md">
+    <div class="liquid-glass-white rounded-[34px] max-w-md w-full p-6 sm:p-7 space-y-5 relative bg-white">
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#FF6B3D]">Official Android Release</span>
+          <h3 class="text-xl font-black text-[#2D1814] mt-0.5">Lumina v1.0.0 (ARM64)</h3>
+          <p class="text-xs font-medium text-[#5C4945] mt-0.5">Made by Tafeem · 8.72 MB · Signed Release APK</p>
+        </div>
+        <button onclick="closeDownloadModal()" class="w-8 h-8 rounded-full bg-[#FFF0EB] hover:bg-[#FFE0D6] flex items-center justify-center text-[#2D1814] font-bold cursor-pointer">✕</button>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-[#FFF8F6] border border-[#2D1814]/10 space-y-2 text-xs">
+        <div class="flex justify-between">
+          <span class="text-[#7A6560]">Package ID:</span>
+          <span class="font-mono-code font-bold text-[#2D1814]">com.ivor.ivormusic</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[#7A6560]">Compatibility:</span>
+          <span class="text-[#2D1814] font-semibold">Android 8.0+ (13+ for AGSL Glass)</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-[#7A6560]">Developer:</span>
+          <span class="text-[#25529B] font-bold">Tafeem (@AbdulTafeem)</span>
+        </div>
+      </div>
+
+      <div class="space-y-2 text-xs text-[#5C4945]">
+        <p class="font-bold text-[#2D1814]">Quick Install Guide:</p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>Download <strong class="text-[#2D1814]">Lumina-v1.0.0-arm64-release.apk</strong> below.</li>
+          <li>Open the APK file and enable <strong class="text-[#2D1814]">Install from unknown sources</strong>.</li>
+          <li>Launch Lumina and enjoy Real iOS 26 Liquid Glass!</li>
+        </ol>
+      </div>
+
+      <div class="flex flex-col gap-2.5 pt-1">
+        <a href="https://github.com/AbdulTafeem/Lumina-Releases/releases/latest/download/Lumina-v1.0.0-arm64-release.apk"
+           class="w-full py-3.5 rounded-2xl bg-[#FF6B3D] text-white font-bold text-sm text-center shadow-[0_12px_28px_rgba(255,107,61,0.34)] hover:bg-[#E85325] transition-all">
+          Direct Download APK (8.72 MB)
+        </a>
+        <a href="https://github.com/AbdulTafeem/Lumina-Releases/releases/latest" target="_blank" rel="noopener"
+           class="w-full py-2.5 rounded-xl bg-[#FFF0EB] text-[#2D1814] font-bold text-xs text-center hover:bg-[#FFE0D6] transition-all">
+          Open GitHub Releases Page
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. 3D Interactive Tilt on Hero Phone Frame
+    const phoneStage = document.getElementById('heroPhoneStage');
+    const phoneCard = document.getElementById('heroPhoneCard');
+
+    if (phoneStage && phoneCard) {
+      phoneStage.addEventListener('mousemove', (e) => {
+        const rect = phoneStage.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        phoneCard.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 14}deg)`;
+      });
+
+      phoneStage.addEventListener('mouseleave', () => {
+        phoneCard.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+    }
+
+    // 2. Interactive Play/Pause Button inside Hero Editorial Phone
+    let editorialPlaying = true;
+    function toggleEditorialPlay() {
+      editorialPlaying = !editorialPlaying;
+      document.getElementById('editorialBtnLabel').textContent = editorialPlaying ? 'PAUSE' : 'PLAY';
+    }
+
+    // 3. Spotlight Mouse Tracking across White Glass Cards
+    document.querySelectorAll('.spotlight-surface').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--card-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--card-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // 4. Interactive 8-Style Player Switcher
+    const playerStylesData = {
+      Editorial: {
+        bg: '#E9EEF7', accent: '#25529B', shape: 'scalloped-star',
+        title: 'Two-Tone Magazine Layout',
+        desc: 'Scalloped 12-point star cover framing paired with bold italic serif headlines and wavy progress scrubbing.'
+      },
+      Classic: {
+        bg: '#FFF3EF', accent: '#FF6B3D', shape: 'rounded-3xl',
+        title: 'Expressive Classic Controls',
+        desc: 'Dynamic cover art that morphs shape on pause with oversized, bouncy Material 3 playback controls.'
+      },
+      Gesture: {
+        bg: '#F3F0FF', accent: '#6366F1', shape: 'rounded-[32px]',
+        title: 'Swipe-First Gesture Canvas',
+        desc: 'Swipe left or right across the artwork to skip tracks with tactile spring resistance and side indicators.'
+      },
+      Canvas: {
+        bg: '#EDF7F5', accent: '#0D9488', shape: 'rounded-2xl',
+        title: 'Full-Bleed Album Canvas',
+        desc: 'Edge-to-edge immersive album artwork with floating frosted glass playback pills anchored at the bottom.'
+      },
+      Bento: {
+        bg: '#FFF7ED', accent: '#EA580C', shape: 'rounded-xl',
+        title: 'Squishy Modular Bento Tiles',
+        desc: 'Playful asymmetric grid tiles displaying artwork, lyrics, queue, and audio controls side-by-side.'
+      },
+      Sticker: {
+        bg: '#FDF2F8', accent: '#DB2777', shape: 'rounded-full',
+        title: 'Die-Cut Sticker Physics',
+        desc: 'Organic die-cut clover artwork with playful toy physics and crisp white sticker borders.'
+      },
+      Morph: {
+        bg: '#EEF2FF', accent: '#4F46E5', shape: 'scalloped-star',
+        title: 'Living Shape That Breathes',
+        desc: 'Continuously morphing geometric silhouette synced to the beat and tempo of your music.'
+      },
+      Dial: {
+        bg: '#F4F4F5', accent: '#2D1814', shape: 'rounded-full',
+        title: 'Tactile Rotary Scrubbing Dial',
+        desc: 'Spin the precision rotary ring around the cover art to scrub through tracks like a studio deck.'
+      }
+    };
+
+    function selectPlayerStyle(styleName) {
+      const data = playerStylesData[styleName];
+      if (!data) return;
+
+      document.querySelectorAll('.style-pill').forEach(btn => {
+        if (btn.dataset.style === styleName) {
+          btn.className = 'style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#2D1814] text-white shadow cursor-pointer transition-all';
+        } else {
+          btn.className = 'style-pill px-3.5 py-2 rounded-full text-xs font-bold bg-[#FFF0EB] text-[#2D1814] hover:bg-[#FFE0D6] cursor-pointer transition-all';
+        }
+      });
+
+      const card = document.getElementById('stylePreviewCard');
+      const badge = document.getElementById('styleBadge');
+      const shape = document.getElementById('styleShapeBox');
+      const title = document.getElementById('styleTitle');
+      const desc = document.getElementById('styleDesc');
+
+      card.style.backgroundColor = data.bg;
+      badge.style.backgroundColor = data.accent;
+      badge.textContent = `${styleName} Style`;
+      shape.className = `w-24 h-24 ${data.shape} shrink-0 transition-all duration-500 shadow-lg`;
+      shape.style.backgroundColor = data.accent;
+      title.style.color = data.accent;
+      title.textContent = data.title;
+      desc.textContent = data.desc;
+    }
+
+    // 5. Daylight Liquid Glass Optical Lab Slider
+    function updateDaylightOptics(val) {
+      const demo = document.getElementById('liveDaylightGlass');
+      const label = document.getElementById('opticsValueLabel');
+      const blurPx = Math.round(6 + (val / 100) * 26);
+      const bgAlpha = (0.48 + (val / 100) * 0.36).toFixed(2);
+
+      label.textContent = `${val}% Refraction`;
+      demo.style.background = `rgba(255, 255, 255, ${bgAlpha})`;
+      demo.style.backdropFilter = `blur(${blurPx}px) saturate(${140 + Number(val)}%)`;
+      demo.style.webkitBackdropFilter = `blur(${blurPx}px) saturate(${140 + Number(val)}%)`;
+    }
+
+    // 6. Scroll Reveal Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+    // 7. Download Modal Controls
+    const modal = document.getElementById('downloadModal');
+    function openDownloadModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeDownloadModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeDownloadModal();
+    });
+  </script>
+</body>
+</html>
