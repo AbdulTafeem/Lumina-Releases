@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumina Music — Refracted Through Liquid Glass | Made by Tafeem</title>
   <meta name="description" content="Download Lumina Music v5.5.0 for Android. Engineered with Real iOS 26 Liquid Glass optics and Material 3 Expressive design. Made by Tafeem (@AbdulTafeem)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Lumina Music — Refracted Through Liquid Glass | Made by Tafeem" />
+  <meta property="og:description" content="Ad-free, 120Hz Android music & media experience with iOS 26 Liquid Glass optics, In-App Auto-Updater, and Material 3 Expressive design." />
+  <meta property="og:url" content="https://abdultafeem.github.io/Lumina-Releases/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#050507" />
   <!-- Ultra-Premium 4K-Style Liquid Glass Squircle Browser Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='shell' x1='20' y1='16' x2='108' y2='112' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFA38A'/%3E%3Cstop offset='32%25' stop-color='%23FF5436'/%3E%3Cstop offset='72%25' stop-color='%239E160E'/%3E%3Cstop offset='100%25' stop-color='%23FF6E4E'/%3E%3C/linearGradient%3E%3ClinearGradient id='note' x1='42' y1='32' x2='72' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23FFDFD4'/%3E%3Cstop offset='55%25' stop-color='%23FF876B'/%3E%3Cstop offset='100%25' stop-color='%23D92B1C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='120' height='120' rx='32' fill='%23050507'/%3E%3Cpath d='M47 17C53 13 61 15 70 20L106 41C114 46 117 54 113 62L94 95C90 103 81 105 72 101L37 87C29 83 26 75 30 66L44 33C46 27 44 20 47 17Z' fill='url(%23shell)'/%3E%3Cpath d='M60 33C66 33 69 38 69 45V72C69 81 62 87 53 86C45 85 41 79 43 72C45 65 53 62 60 64V39C60 35 58 33 60 33Z' fill='url(%23note)'/%3E%3Cpath d='M69 42C79 46 90 53 94 59C96 64 91 69 81 73C75 76 71 72 71 65V48C71 44 70 43 69 42Z' fill='%23FF876B'/%3E%3C/svg%3E" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +36,7 @@
     }
 
     body {
-      background-color: var(--bg-pure);
+      background-color: #FFFFFF;
       color: var(--ink-slate);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       overflow-x: hidden;
@@ -223,13 +229,103 @@
       transform: scale(1.16);
     }
   </style>
+<style id="apple-daylight-polish">
+  :root {
+    --apple-bg: #FFFFFF;
+    --apple-gray: #F5F5F7;
+    --apple-ink: #1D1D1F;
+    --apple-sub: #6E6E73;
+    --apple-coral: #FF5436;
+    --apple-ease: cubic-bezier(0.28, 0.11, 0.32, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FFFFFF;
+  }
+
+  body {
+    background-color: #FFFFFF !important;
+    color: #1D1D1F !important;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif !important;
+    letter-spacing: -0.015em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Apple.com Sticky 48px Glass Header — ONLY place using backdrop-filter for 120fps scroll */
+  header, nav {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Replace heavy blurred glass cards with Apple's solid #F5F5F7 / #FFFFFF Bento Surfaces */
+  .liquid-glass-white {
+    background: #F5F5F7 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border-radius: 28px !important;
+    box-shadow: none !important;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.65s var(--apple-ease), background-color 0.4s var(--apple-ease) !important;
+    will-change: transform;
+  }
+
+  .liquid-glass-white::before,
+  .liquid-glass-white::after {
+    display: none !important;
+  }
+
+  .liquid-glass-white:hover {
+    background: #EFEFF2 !important;
+    transform: translate3d(0, -4px, 0) scale(1.005) !important;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Apple.com Typography Scale */
+  h1 {
+    font-weight: 700 !important;
+    letter-spacing: -0.035em !important;
+    line-height: 1.05 !important;
+    color: #1D1D1F !important;
+  }
+
+  h2 {
+    font-weight: 700 !important;
+    letter-spacing: -0.028em !important;
+    line-height: 1.1 !important;
+    color: #1D1D1F !important;
+  }
+
+  /* Apple Scroll-Reveal Glide */
+  .apple-reveal {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.985);
+    transition: opacity 0.85s var(--apple-ease), transform 0.85s var(--apple-ease);
+    will-change: opacity, transform;
+  }
+
+  .apple-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  /* Off-screen rendering optimization for 120Hz scroll */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
+  }
+</style>
 </head>
 <body class="selection:bg-[#FF6B3D]/20 selection:text-[#2D1814]">
 
   <!-- Soft Warm Alabaster & Cobalt Daylight Orbs -->
-  <div class="daylight-orb w-[520px] h-[520px] bg-[#FFD8CC]/70 -top-28 -left-24"></div>
-  <div class="daylight-orb w-[480px] h-[480px] bg-[#DCE8FF]/80 top-1/4 -right-24" style="animation-delay: -6s;"></div>
-  <div class="daylight-orb w-[460px] h-[460px] bg-[#FFE6DF]/75 bottom-12 left-1/4" style="animation-delay: -12s;"></div>
+  
+  
+  
   <div class="fixed inset-0 bg-dot-matrix pointer-events-none z-0"></div>
 
   <!-- FLOATING FROSTED WHITE LIQUID GLASS NAVBAR -->
@@ -371,7 +467,7 @@
 
           <!-- Inner Screen (Hero Full-Bleed Player Screenshot) -->
           <div class="relative w-full h-full rounded-[38px] overflow-hidden bg-[#D6E0EE]">
-            <img src="50-player-hero.png" alt="Lumina Hero Player" class="w-full h-full object-cover block">
+            <img loading="lazy" decoding="async" src="50-player-hero.png" alt="Lumina Hero Player" class="w-full h-full object-cover block">
           </div>
         </div>
       </div>
@@ -394,7 +490,7 @@
         <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up">
           <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
             <div class="relative rounded-[28px] overflow-hidden bg-[#FFF6F3] aspect-[9/19.2] flex flex-col justify-between">
-              <img src="01-home-music-your-mix.png"
+              <img loading="lazy" decoding="async" src="01-home-music-your-mix.png"
                    alt="Lumina Home Screen — Your Mix"
                    class="w-full h-full object-cover"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -441,7 +537,7 @@
         <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 70ms;">
           <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
             <div class="relative rounded-[28px] overflow-hidden bg-[#E9EEF7] aspect-[9/19.2] flex flex-col justify-between">
-              <img src="03-player-editorial.png"
+              <img loading="lazy" decoding="async" src="03-player-editorial.png"
                    alt="Lumina Editorial Player Screen"
                    class="w-full h-full object-cover"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -476,7 +572,7 @@
         <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 140ms;">
           <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
             <div class="relative rounded-[28px] overflow-hidden bg-[#FFF8F6] aspect-[9/19.2] flex flex-col justify-between">
-              <img src="07-search-music-songs.png"
+              <img loading="lazy" decoding="async" src="07-search-music-songs.png"
                    alt="Lumina Instant Search Screen"
                    class="w-full h-full object-cover"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -528,7 +624,7 @@
         <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up">
           <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
             <div class="relative rounded-[28px] overflow-hidden bg-[#F7F3F2] aspect-[9/19.2] flex flex-col justify-between">
-              <img src="09-player-style-wheel.png"
+              <img loading="lazy" decoding="async" src="09-player-style-wheel.png"
                    alt="Lumina Radial Player Style Wheel"
                    class="w-full h-full object-cover"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -563,7 +659,7 @@
         <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 70ms;">
           <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
             <div class="relative rounded-[28px] overflow-hidden bg-[#FFF8F6] aspect-[9/19.2] flex flex-col justify-between">
-              <img src="27-settings-player-styles.png"
+              <img loading="lazy" decoding="async" src="27-settings-player-styles.png"
                    alt="Lumina 8 Player Styles Settings"
                    class="w-full h-full object-cover"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -597,7 +693,7 @@
         <div class="liquid-glass-white spotlight-surface rounded-[34px] p-5 flex flex-col justify-between reveal-up" style="transition-delay: 140ms;">
           <div class="phone-bezel-silver rounded-[36px] p-2.5 mx-auto w-full max-w-[265px]">
             <div class="relative rounded-[28px] overflow-hidden bg-[#FFF8F6] aspect-[9/19.2] flex flex-col justify-between">
-              <img src="28-settings-player-styles-scrolled.png"
+              <img loading="lazy" decoding="async" src="28-settings-player-styles-scrolled.png"
                    alt="Lumina Dynamic Album Art Colors"
                    class="w-full h-full object-cover"
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -846,10 +942,10 @@
 
       <!-- Live Dynamic UPI QR Code Card -->
       <div class="lg:col-span-5 flex flex-col items-center justify-center">
-        <div class="p-4 rounded-3xl bg-[#050507] border border-[#FF785A]/40 shadow-xl text-center">
-          <img id="lumina-upi-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=FFFFFF&bgcolor=050507&data=upi%3A%2F%2Fpay%3Fpa%3Drxstore458%40okhdfcbank%26pn%3DTafeem%26tn%3DSupport%2520Lumina%2520Music%26am%3D99%26cu%3DINR" alt="Scan UPI QR to Support Lumina" class="w-44 h-44 rounded-2xl mx-auto" />
-          <div class="mt-3 text-xs font-bold text-white tracking-wide">Scan with GPay · PhonePe · Paytm</div>
-          <div id="lumina-qr-caption" class="text-[11px] font-mono-code text-[#FF8A6E] mt-0.5">₹99 · rxstore458@okhdfcbank</div>
+        <div class="p-5 rounded-[28px] bg-white border border-black/[0.07] shadow-[0_14px_34px_rgba(0,0,0,0.06)] text-center">
+          <img id="lumina-upi-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=1D1D1F&bgcolor=FFFFFF&data=upi%3A%2F%2Fpay%3Fpa%3Drxstore458%40okhdfcbank%26pn%3DTafeem%26tn%3DSupport%2520Lumina%2520Music%26am%3D99%26cu%3DINR" alt="Scan UPI QR to Support Lumina" class="w-44 h-44 rounded-2xl mx-auto" />
+          <div class="mt-3 text-xs font-bold text-[#1D1D1F] tracking-tight">Scan with GPay · PhonePe · Paytm</div>
+          <div id="lumina-qr-caption" class="text-[11px] font-mono-code text-[#FF5436] font-semibold mt-0.5">₹99 · rxstore458@okhdfcbank</div>
         </div>
       </div>
     </div>
@@ -878,7 +974,7 @@
         const rawUpi = `upi://pay?pa=${upiId}&pn=Tafeem&tn=Support%20Lumina%20Music&am=${amt}&cu=INR`;
         upiLink.href = rawUpi;
         upiLink.querySelector('span').textContent = `Pay ₹${amt} via UPI App`;
-        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=FFFFFF&bgcolor=050507&data=${encodeURIComponent(rawUpi)}`;
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=1D1D1F&bgcolor=FFFFFF&data=${encodeURIComponent(rawUpi)}`;
         qrCap.textContent = `₹${amt} · ${upiId}`;
       });
     });
@@ -1147,51 +1243,261 @@
       if (e.target === modal) closeDownloadModal();
     });
   </script>
-<!-- lumina-emblem-3d-fx -->
+<!-- Lumina Interactive Liquid Glass Sandbox & 3-Step Install FAQ -->
+<section id="sandbox" class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+  <div class="liquid-glass-white rounded-[32px] p-6 sm:p-9 border border-white/90">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200/70">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF0EB] text-[#FF5436] text-xs font-bold uppercase tracking-wider">
+          <span>⚡</span> 120Hz Interactive Preview
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#2D1814] mt-2 tracking-tight">
+          Experience <span class="text-[#FF5436]">Liquid Glass</span> Optics Live
+        </h2>
+      </div>
+      <!-- Live Stats & Smart Device Pill -->
+      <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono-code">
+        <span id="gh-live-version" class="px-3 py-1.5 rounded-full bg-[#F5F5F7] text-[#1D1D1F] border border-black/10 font-semibold">v5.5.0 Live</span>
+        <span id="gh-live-downloads" class="px-3 py-1.5 rounded-full bg-[#FFF0EB] text-[#FF5436] font-bold">Direct GitHub CDN</span>
+        <span id="device-arch-badge" class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 font-semibold">ARM64 Ready</span>
+      </div>
+    </div>
+
+    <!-- Interactive Mini-Player & Style Switcher -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6 items-center">
+      <div class="lg:col-span-7">
+        <div id="lumina-preview-card" class="rounded-3xl p-6 transition-colors duration-300 bg-gradient-to-br from-[#FFFFFF] via-[#F9F9FB] to-[#FFF5F2] text-[#1D1D1F] border border-black/[0.07] shadow-[0_12px_36px_rgba(0,0,0,0.06)]">
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <div id="preview-disc" class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#FF5436] to-[#FF9E88] flex items-center justify-center shadow-lg shadow-[#FF5436]/30 shrink-0">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+              </div>
+              <div>
+                <div class="text-[11px] uppercase tracking-widest text-[#FF8A6E] font-bold">Spatial Glass Engine</div>
+                <div class="text-lg font-extrabold tracking-tight">Lumina Ambient Chords</div>
+                <div class="text-xs text-[#6E6E73]">Zero-Latency WebAudio · 120fps GPU</div>
+              </div>
+            </div>
+            <button type="button" id="sandbox-play-btn" class="w-12 h-12 rounded-full bg-[#FF5436] hover:bg-[#ff684d] text-white flex items-center justify-center font-bold shadow-lg shadow-[#FF5436]/40 transition-transform active:scale-95" aria-label="Play Ambient Preview">
+              ▶
+            </button>
+          </div>
+          <!-- GPU-composited visualizer bars -->
+          <div class="flex items-end gap-1.5 h-10 mt-5 px-1" id="sandbox-bars">
+            <span class="s-bar flex-1 bg-[#FF5436] rounded-full h-3 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FF785A] rounded-full h-6 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FFA38A] rounded-full h-4 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FF5436] rounded-full h-8 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FF8A6E] rounded-full h-5 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FF5436] rounded-full h-7 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FFA38A] rounded-full h-4 transition-transform duration-150"></span>
+            <span class="s-bar flex-1 bg-[#FF6E4E] rounded-full h-6 transition-transform duration-150"></span>
+          </div>
+          <!-- Theme Switcher Pills -->
+          <div class="flex flex-wrap gap-2 mt-5 pt-4 border-t border-black/[0.06] text-xs font-bold">
+            <button type="button" data-theme="obsidian" class="theme-btn px-3.5 py-1.5 rounded-full bg-[#FF5436] text-white">Apple Daylight</button>
+            <button type="button" data-theme="editorial" class="theme-btn px-3.5 py-1.5 rounded-full bg-[#F5F5F7] text-[#1D1D1F] hover:bg-[#EBEBF0]">Warm Editorial</button>
+            <button type="button" data-theme="cobalt" class="theme-btn px-3.5 py-1.5 rounded-full bg-[#F5F5F7] text-[#1D1D1F] hover:bg-[#EBEBF0]">Midnight Cobalt</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop QR / Smart Mobile Direct Download Box -->
+      <div class="lg:col-span-5 flex flex-col items-center justify-center text-center p-5 rounded-3xl bg-white/75 border border-slate-200/80">
+        <img id="apk-qr-img" loading="lazy" decoding="async" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=050507&bgcolor=FFFFFF&data=https%3A%2F%2Fgithub.com%2FAbdulTafeem%2FLumina-Releases%2Freleases%2Fdownload%2Fv5.5.0%2Fapp-arm64-v8a-release.apk" alt="Scan to Download Lumina APK" class="w-36 h-36 rounded-2xl shadow-sm" />
+        <div class="mt-3 text-sm font-extrabold text-[#2D1814]" id="smart-device-title">Scan with Phone Camera</div>
+        <p class="text-xs text-slate-500 mt-1 max-w-xs" id="smart-device-desc">Instant direct APK download on Android · Auto-updates built in.</p>
+      </div>
+    </div>
+
+    <!-- 3-Step Install Strip & Zero-JS FAQ -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6 pt-6 border-t border-slate-200/70 text-xs">
+      <div class="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70">
+        <span class="font-black text-[#FF5436]">01 · Download APK</span>
+        <p class="text-slate-600 mt-1">Tap Download (<span id="gh-apk-size">~9.14 MB</span>). Signed directly by Tafeem.</p>
+      </div>
+      <div class="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70">
+        <span class="font-black text-[#FF5436]">02 · Tap Install</span>
+        <p class="text-slate-600 mt-1">Allow "Install unknown apps" once for your browser when prompted.</p>
+      </div>
+      <div class="p-3.5 rounded-2xl bg-white/70 border border-slate-200/70">
+        <span class="font-black text-[#FF5436]">03 · Automatic Updates</span>
+        <p class="text-slate-600 mt-1">Future updates arrive inside Lumina automatically with one tap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <style>
   .lumina-emblem-3d {
     filter: drop-shadow(0 10px 22px rgba(255, 84, 54, 0.34));
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
-  }
-  .lumina-emblem-3d:hover {
-    transform: scale(1.08) rotate(-4deg);
-    filter: drop-shadow(0 16px 32px rgba(255, 84, 54, 0.55));
-  }
-  .liquid-glass-white {
-    transform-style: preserve-3d;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
   }
-  .liquid-glass-white::after {
-    content: "";
-    position: absolute;
-    inset: -100%;
-    background: linear-gradient(
-      115deg,
-      transparent 35%,
-      rgba(255, 255, 255, 0.55) 48%,
-      rgba(255, 130, 96, 0.16) 52%,
-      transparent 65%
-    );
-    transform: translateX(-60%) rotate(12deg);
-    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-    pointer-events: none;
+  .lumina-emblem-3d:hover {
+    transform: scale(1.06) rotate(-3deg);
   }
-  .liquid-glass-white:hover::after {
-    transform: translateX(60%) rotate(12deg);
+  .liquid-glass-white {
+    contain: layout style;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .daylight-orb, .lumina-emblem-3d, .liquid-glass-white {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
   }
 </style>
+
 <script>
-  document.querySelectorAll('.liquid-glass-white').forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(1000px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 5).toFixed(2)}deg) translateY(-3px)`;
+  // 1. 120fps rAF-throttled GPU Tilt (Desktop pointer devices only — zero overhead on mobile touch)
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.liquid-glass-white').forEach((card) => {
+      let rafId = null;
+      card.addEventListener('mousemove', (e) => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = `perspective(1000px) rotateX(${(-y * 3.5).toFixed(2)}deg) rotateY(${(x * 3.5).toFixed(2)}deg) translate3d(0,-2px,0)`;
+          rafId = null;
+        });
+      }, { passive: true });
+      card.addEventListener('mouseleave', () => {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        card.style.transform = '';
+      }, { passive: true });
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
+  }
+
+  // 2. Smart Device & Architecture Detector
+  (function() {
+    const ua = navigator.userAgent || '';
+    const isAndroid = /Android/i.test(ua);
+    const is32Bit = /armeabi|armv7/i.test(ua) && !/arm64|aarch64/i.test(ua);
+    const archBadge = document.getElementById('device-arch-badge');
+    const titleEl = document.getElementById('smart-device-title');
+    const descEl = document.getElementById('smart-device-desc');
+    if (isAndroid) {
+      const arch = is32Bit ? 'ARMv7 (32-bit)' : 'ARM64 (Recommended)';
+      if (archBadge) archBadge.textContent = `Detected: ${arch}`;
+      if (titleEl) titleEl.textContent = `Optimized for Your Android (${arch})`;
+      if (descEl) descEl.textContent = 'Tap any Download button above for instant one-tap installation.';
+    }
+  })();
+
+  // 3. Cached Live GitHub Releases API Sync (5-min sessionStorage cache)
+  (async function() {
+    const cacheKey = 'lumina_gh_release_v1';
+    try {
+      let data = null;
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Date.now() - parsed.ts < 300000) data = parsed.data;
+      }
+      if (!data) {
+        const res = await fetch('https://api.github.com/repos/AbdulTafeem/Lumina-Releases/releases/latest');
+        if (res.ok) {
+          data = await res.json();
+          sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data }));
+        }
+      }
+      if (data && data.tag_name) {
+        const verEl = document.getElementById('gh-live-version');
+        const dlEl = document.getElementById('gh-live-downloads');
+        const sizeEl = document.getElementById('gh-apk-size');
+        if (verEl) verEl.textContent = `${data.tag_name} Live`;
+        const assets = Array.isArray(data.assets) ? data.assets : [];
+        const totalDl = assets.reduce((sum, a) => sum + (a.download_count || 0), 0);
+        if (dlEl && totalDl > 0) dlEl.textContent = `${totalDl.toLocaleString()} Downloads`;
+        const arm64 = assets.find(a => a.name && a.name.includes('arm64'));
+        if (arm64 && sizeEl) sizeEl.textContent = `${(arm64.size / (1024 * 1024)).toFixed(2)} MB`;
+      }
+    } catch (_) {}
+  })();
+
+  // 4. Zero-Bloat WebAudio Ambient Synthesizer + Theme Switcher
+  (function() {
+    const playBtn = document.getElementById('sandbox-play-btn');
+    const bars = document.querySelectorAll('#sandbox-bars .s-bar');
+    const previewCard = document.getElementById('lumina-preview-card');
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    let audioCtx = null, isPlaying = false, timer = null;
+
+    const themes = {
+      obsidian: 'bg-gradient-to-br from-[#FFFFFF] via-[#F9F9FB] to-[#FFF5F2] text-[#1D1D1F] border-black/[0.07]',
+      editorial: 'bg-gradient-to-br from-[#FFF9F7] via-[#FFFFFF] to-[#FFEFE9] text-[#1D1D1F] border-[#FF5436]/20',
+      cobalt: 'bg-gradient-to-br from-[#F7FAFF] via-[#FFFFFF] to-[#EDF4FF] text-[#1D1D1F] border-blue-500/20'
+    };
+
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = btn.getAttribute('data-theme');
+        themeBtns.forEach(b => { b.classList.remove('bg-[#FF5436]', 'text-white'); b.classList.add('bg-[#F5F5F7]', 'text-[#1D1D1F]'); });
+        btn.classList.remove('bg-[#F5F5F7]', 'text-[#1D1D1F]'); btn.classList.add('bg-[#FF5436]', 'text-white');
+        previewCard.className = `rounded-3xl p-6 transition-colors duration-300 border shadow-xl ${themes[t] || themes.obsidian}`;
+      });
     });
-  });
+
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        playBtn.textContent = isPlaying ? '❚❚' : '▶';
+        if (isPlaying) {
+          try {
+            audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+            const freqs = [261.63, 329.63, 392.00, 493.88];
+            freqs.forEach((f, idx) => {
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+              gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+              gain.gain.exponentialRampToValueAtTime(0.03, audioCtx.currentTime + 0.4 + idx * 0.1);
+              gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.8);
+              osc.connect(gain); gain.connect(audioCtx.destination);
+              osc.start(); osc.stop(audioCtx.currentTime + 2.9);
+            });
+          } catch (_) {}
+          timer = setInterval(() => {
+            bars.forEach(b => { b.style.transform = `scaleY(${(0.35 + Math.random() * 1.15).toFixed(2)})`; });
+          }, 160);
+        } else {
+          clearInterval(timer);
+          bars.forEach(b => { b.style.transform = 'scaleY(1)'; });
+        }
+      });
+    }
+  })();
+</script>
+<script id="apple-scroll-choreography">
+  (function() {
+    // Strip any inline 3D tilt transforms so Apple hover glide stays pure
+    document.querySelectorAll('.liquid-glass-white').forEach(el => {
+      el.style.transform = '';
+      el.classList.add('apple-reveal');
+    });
+
+    document.querySelectorAll('section h1, section h2, section img').forEach(el => {
+      el.classList.add('apple-reveal');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.apple-reveal').forEach(el => observer.observe(el));
+  })();
 </script>
 </body>
 </html>
