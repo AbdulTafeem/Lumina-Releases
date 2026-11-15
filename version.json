@@ -1,0 +1,7 @@
+{
+  "versionCode": 33,
+  "versionName": "5.4.0",
+  "apkUrl": "https://github.com/AbdulTafeem/Lumina-Releases/releases/download/v5.4.0/app-arm64-v8a-release.apk",
+  "changelog": "- New 3D Liquid-Chrome Coral-Crimson Emblem\n- In-App Auto-Updater & Direct Installer\n- 120Hz UI & R8 Performance Optimizations",
+  "forceUpdate": false
+}
