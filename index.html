@@ -313,11 +313,7 @@
     transform: translate3d(0, 0, 0) scale(1);
   }
 
-  /* Off-screen rendering optimization for 120Hz scroll */
-  section {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 700px;
-  }
+  
 </style>
 </head>
 <body class="selection:bg-[#FF6B3D]/20 selection:text-[#2D1814]">
@@ -526,10 +522,10 @@
           </div>
           <div class="pt-5 px-1">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-[#2D1814] text-base">Home & Your Mix</h3>
+              <h3 class="font-extrabold text-[#2D1814] text-base">Library & Offline Hub</h3>
               <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#FF6B3D]">M3 Expressive</span>
             </div>
-            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Editorial hero typography with organic pill collage art and a floating Liquid Glass navigation capsule.</p>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Clean Material 3 library with instant access to Downloads, Ready Offline tracks, Listening History, and Recently Played.</p>
           </div>
         </div>
 
@@ -613,10 +609,10 @@
           </div>
           <div class="pt-5 px-1">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-[#2D1814] text-base">Instant Music Search</h3>
+              <h3 class="font-extrabold text-[#2D1814] text-base">Live Queue & Up Next</h3>
               <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#9E3208]">Fast Stream</span>
             </div>
-            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Frosted search capsule with instant filtering across Songs, Artists, Albums, and Playlists.</p>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Dynamic Up Next queue with active waveform indicator, drag-to-reorder handles, and instant track management.</p>
           </div>
         </div>
 
@@ -648,10 +644,10 @@
           </div>
           <div class="pt-5 px-1">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-[#2D1814] text-base">Radial Style Wheel</h3>
+              <h3 class="font-extrabold text-[#2D1814] text-base">Real-Time Synced Lyrics</h3>
               <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#FF6B3D]">Long-Press</span>
             </div>
-            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Long-press album artwork in any player to summon a frosted radial wheel and morph layouts live.</p>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Multi-language time-synced lyrics smoothly scrolling above bold editorial track typography and tactile controls.</p>
           </div>
         </div>
 
@@ -682,10 +678,10 @@
           </div>
           <div class="pt-5 px-1">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-[#2D1814] text-base">8 Expressive Layouts</h3>
+              <h3 class="font-extrabold text-[#2D1814] text-base">Custom App Icons & Shapes</h3>
               <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#EBF2FF] text-[#25529B]">Customizable</span>
             </div>
-            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Choose between Classic, Gesture, Editorial, Canvas, Bento, Sticker, Morph, and Rotary Dial.</p>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Switch between Lumina Classic, Crimson Beat, Midnight Cyber, and Emerald Groove with Squircle, Circle, or Burst shapes.</p>
           </div>
         </div>
 
@@ -722,10 +718,10 @@
           </div>
           <div class="pt-5 px-1">
             <div class="flex items-center justify-between">
-              <h3 class="font-extrabold text-[#2D1814] text-base">Adaptive Cover Tinting</h3>
+              <h3 class="font-extrabold text-[#2D1814] text-base">8 Expressive Player Layouts</h3>
               <span class="text-[10px] font-mono-code font-semibold px-2 py-0.5 rounded-full bg-[#FFF0EB] text-[#FF6B3D]">Dynamic Color</span>
             </div>
-            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Automatically extracts dominant hues from every album cover to tint controls, pills, and glass rims.</p>
+            <p class="text-xs text-[#5C4945] mt-1.5 leading-relaxed">Switch live between Classic, Gesture, Editorial, Canvas, Bento, Sticker, Morph, and Rotary Dial player modes.</p>
           </div>
         </div>
 
@@ -1350,27 +1346,6 @@
 </style>
 
 <script>
-  // 1. 120fps rAF-throttled GPU Tilt (Desktop pointer devices only — zero overhead on mobile touch)
-  if (window.matchMedia('(pointer: fine)').matches) {
-    document.querySelectorAll('.liquid-glass-white').forEach((card) => {
-      let rafId = null;
-      card.addEventListener('mousemove', (e) => {
-        if (rafId) return;
-        rafId = requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = `perspective(1000px) rotateX(${(-y * 3.5).toFixed(2)}deg) rotateY(${(x * 3.5).toFixed(2)}deg) translate3d(0,-2px,0)`;
-          rafId = null;
-        });
-      }, { passive: true });
-      card.addEventListener('mouseleave', () => {
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-        card.style.transform = '';
-      }, { passive: true });
-    });
-  }
-
   // 2. Smart Device & Architecture Detector
   (function() {
     const ua = navigator.userAgent || '';
