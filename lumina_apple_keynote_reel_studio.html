@@ -503,21 +503,20 @@
       const shotsStatusEl = document.getElementById('shots-status');
 
       const autoProbeNames = [
+        '50-player-hero.jpg',
+        '03-player-editorial.jpg',
+        '28-settings-player-styles-scrolled.jpg',
+        '09-player-style-wheel.jpg',
+        '07-search-music-songs.jpg',
+        '27-settings-player-styles.jpg',
+        '01-home-music-your-mix.jpg',
         '50-player-hero.png',
         '03-player-editorial.png',
         '27-settings-player-styles.png',
         '28-settings-player-styles-scrolled.png',
         '09-player-style-wheel.png',
         '07-search-music-songs.png',
-        '01-home-music-your-mix.png',
-        '50-player-hero.png',
-        'Screenshot_20261116_191739_Lumina.jpg.jpg',
-        'Screenshot_20261116_191928_Lumina.jpg.png',
-        'Screenshot_20261116_191943_Lumina.jpg.jpg',
-        'Screenshot_20261116_191756_Lumina.jpg.png',
-        'Screenshot_20261116_191745_Lumina.jpg.png',
-        'Screenshot_20261116_191814_Lumina.jpg.png',
-        'Screenshot_20261116_191804_Lumina.jpg.jpg'
+        '01-home-music-your-mix.png'
       ];
 
       function refreshShotsBadge() {
@@ -541,27 +540,24 @@
         img.src = src;
       });
 
-      function ingestFiles(fileList) {
+      async function ingestFiles(fileList) {
         const files = Array.from(fileList).filter(f => f.type.startsWith('image/')).slice(0, 7);
         if (!files.length) return;
         loadedShots.length = 0;
-        let count = 0;
-        files.forEach((f) => {
-          const reader = new FileReader();
-          reader.onload = (ev) => {
-            const img = new Image();
-            img.onload = () => {
-              loadedShots.push(img);
-              count++;
-              refreshShotsBadge();
-              if (count === files.length) {
-                showToast(`Loaded ${loadedShots.length} screenshot${loadedShots.length > 1 ? 's' : ''} into Keynote Studio!`);
-              }
-            };
-            img.src = ev.target.result;
-          };
-          reader.readAsDataURL(f);
-        });
+        const decoded = await Promise.all(files.map(async (f) => {
+          const img = new Image();
+          img.src = URL.createObjectURL(f);
+          if (img.decode) {
+            try { await img.decode(); } catch (_) {}
+          } else {
+            await new Promise(r => { img.onload = r; img.onerror = r; });
+          }
+          return img;
+        }));
+        loadedShots.push(...decoded);
+        refreshShotsBadge();
+        renderFrame(elapsed);
+        showToast(`Instant Loaded ${loadedShots.length} screenshot${loadedShots.length > 1 ? 's' : ''}!`);
       }
 
       const filePicker = document.getElementById('file-picker');

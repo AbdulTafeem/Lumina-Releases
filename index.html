@@ -1538,7 +1538,7 @@
     }));
 
     let timer = setInterval(() => goToSlide(current + 1), 2800);
-    function resetAuto() {
+    setTimeout(() => goToSlide(1), 700); function resetAuto() {
       clearInterval(timer);
       timer = setInterval(() => goToSlide(current + 1), 2800);
     }
