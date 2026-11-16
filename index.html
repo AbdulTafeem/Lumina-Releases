@@ -456,14 +456,27 @@
       </div>
 
       <!-- Right Interactive 3D Silver/White Flagship Phone Mockup (Matches Editorial Player Screenshot) -->
-      <div class="lg:col-span-5 flex justify-center phone-stage reveal-up is-visible" id="heroPhoneStage">
-        <div id="heroPhoneCard" class="phone-bezel-silver relative w-[300px] sm:w-[320px] h-[630px] rounded-[48px] p-3 select-none">
-          <!-- Camera Punch-hole -->
-          <div class="absolute top-5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#111827] z-30"></div>
+      <div class="lg:col-span-5 flex flex-col items-center justify-center phone-stage reveal-up is-visible" id="heroPhoneStage">
+        <div id="heroPhoneCard" class="phone-bezel-silver relative w-[288px] sm:w-[304px] aspect-[9/19.5] rounded-[46px] p-[10px] select-none">
+          <!-- Inner Screen (Zero overlays covering the app UI) -->
+          <div id="heroReelStage" class="relative w-full h-full rounded-[37px] overflow-hidden bg-[#F5F5F7] shadow-inner">
+            <img id="heroReelImgA" src="50-player-hero.png" alt="Lumina App Screen" class="absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-out opacity-100 scale-100" />
+            <img id="heroReelImgB" src="03-player-editorial.png" alt="Lumina App Screen" class="absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-out opacity-0 scale-[1.03]" />
+          </div>
+        </div>
 
-          <!-- Inner Screen (Hero Full-Bleed Player Screenshot) -->
-          <div class="relative w-full h-full rounded-[38px] overflow-hidden bg-[#D6E0EE]">
-            <img loading="lazy" decoding="async" src="50-player-hero.png" alt="Lumina Hero Player" class="w-full h-full object-cover block">
+        <!-- Clean External Apple Glass Pill & Slide Dots Below the Phone (Never blocks UI) -->
+        <div class="mt-4 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#F5F5F7] border border-black/[0.07] shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-[#FF5436] animate-pulse shrink-0"></span>
+          <span id="heroReelBadge" class="text-xs font-bold text-[#1D1D1F] tracking-tight min-w-[148px]">Your Mix · Liquid Dock</span>
+          <div id="heroReelDots" class="flex items-center gap-1.5 pl-2 border-l border-black/10">
+            <button type="button" data-idx="0" aria-label="Slide 1" class="h-1.5 w-4 rounded-full bg-[#FF5436] transition-all cursor-pointer"></button>
+            <button type="button" data-idx="1" aria-label="Slide 2" class="h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer"></button>
+            <button type="button" data-idx="2" aria-label="Slide 3" class="h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer"></button>
+            <button type="button" data-idx="3" aria-label="Slide 4" class="h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer"></button>
+            <button type="button" data-idx="4" aria-label="Slide 5" class="h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer"></button>
+            <button type="button" data-idx="5" aria-label="Slide 6" class="h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer"></button>
+            <button type="button" data-idx="6" aria-label="Slide 7" class="h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer"></button>
           </div>
         </div>
       </div>
@@ -1472,6 +1485,63 @@
     });
 
     document.querySelectorAll('.apple-reveal').forEach(el => observer.observe(el));
+  })();
+</script>
+<script id="hero-live-reel-js">
+  (function() {
+    const slides = [
+      { src: '50-player-hero.png', label: 'Your Mix · Liquid Dock' },
+      { src: '03-player-editorial.png', label: 'Editorial Scalloped Art' },
+      { src: '28-settings-player-styles-scrolled.png', label: '8 Expressive Player Styles' },
+      { src: '09-player-style-wheel.png', label: 'Real-Time Synced Lyrics' },
+      { src: '07-search-music-songs.png', label: 'Live Up Next Queue' },
+      { src: '27-settings-player-styles.png', label: '6 Custom App Icons' },
+      { src: '01-home-music-your-mix.png', label: 'Library & Offline Hub' }
+    ];
+    const imgA = document.getElementById('heroReelImgA');
+    const imgB = document.getElementById('heroReelImgB');
+    const badge = document.getElementById('heroReelBadge');
+    const dots = document.querySelectorAll('#heroReelDots button');
+    if (!imgA || !imgB) return;
+
+    let current = 0;
+    let showA = true;
+
+    function goToSlide(nextIdx) {
+      current = (nextIdx + slides.length) % slides.length;
+      const item = slides[current];
+      const activeImg = showA ? imgB : imgA;
+      const prevImg = showA ? imgA : imgB;
+
+      activeImg.src = item.src;
+      activeImg.style.transform = 'scale(1.06)';
+      activeImg.style.opacity = '1';
+      requestAnimationFrame(() => {
+        activeImg.style.transform = 'scale(1)';
+      });
+
+      prevImg.style.opacity = '0';
+      prevImg.style.transform = 'scale(0.97)';
+      showA = !showA;
+
+      if (badge) badge.textContent = item.label;
+      dots.forEach((d, idx) => {
+        d.className = idx === current
+          ? 'h-1.5 w-4 rounded-full bg-[#FF5436] transition-all cursor-pointer'
+          : 'h-1.5 w-1.5 rounded-full bg-black/25 hover:bg-black/50 transition-all cursor-pointer';
+      });
+    }
+
+    dots.forEach(d => d.addEventListener('click', () => {
+      goToSlide(Number(d.dataset.idx));
+      resetAuto();
+    }));
+
+    let timer = setInterval(() => goToSlide(current + 1), 2800);
+    function resetAuto() {
+      clearInterval(timer);
+      timer = setInterval(() => goToSlide(current + 1), 2800);
+    }
   })();
 </script>
 </body>
