@@ -403,7 +403,7 @@
         <!-- Status & Creator Pill -->
         <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2.5 px-4 py-1.5 rounded-full liquid-glass-white text-xs font-semibold text-[#2D1814]">
           <span class="w-2 h-2 rounded-full bg-[#FF6B3D] animate-pulse"></span>
-          <span>v5.7.0 Release · 8.74 MB</span>
+          <span>v5.7.0 Release · 8.74 MB</span><span class="mx-1.5 opacity-40">|</span><span id="hero-total-downloads" class="font-extrabold text-[#FF5436]">67 Total Downloads</span>
           <span class="text-[#2D1814]/25">•</span>
           <span class="text-[#25529B] font-bold">Made by Tafeem</span>
         </div>
@@ -1440,7 +1440,7 @@
 
   // 3. Cached Live GitHub Releases API Sync (5-min sessionStorage cache)
   (async function() {
-    const cacheKey = 'lumina_gh_release_v1';
+    const cacheKey = 'lumina_gh_release_v2';
     try {
       let data = null;
       const cached = sessionStorage.getItem(cacheKey);
@@ -1449,7 +1449,7 @@
         if (Date.now() - parsed.ts < 300000) data = parsed.data;
       }
       if (!data) {
-        const res = await fetch('https://api.github.com/repos/AbdulTafeem/Lumina-Releases/releases/latest');
+        const res = await fetch('https://api.github.com/repos/AbdulTafeem/Lumina-Releases/releases?per_page=100');
         if (res.ok) {
           data = await res.json();
           sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data }));
@@ -1461,7 +1461,13 @@
         const sizeEl = document.getElementById('gh-apk-size');
         if (verEl) verEl.textContent = `${data.tag_name} Live`;
         const assets = Array.isArray(data.assets) ? data.assets : [];
-        const totalDl = assets.reduce((sum, a) => sum + (a.download_count || 0), 0);
+        const allReleases = Array.isArray(data) ? data : [data];
+const totalDl = allReleases.reduce((relSum, rel) => {
+  const relAssets = Array.isArray(rel.assets) ? rel.assets : [];
+  return relSum + relAssets.reduce((sum, a) => sum + (a.download_count || 0), 0);
+}, 0);
+const heroDlEl = document.getElementById('hero-total-downloads');
+if (heroDlEl) heroDlEl.textContent = totalDl > 0 ? `${totalDl.toLocaleString()} Total Downloads` : 'Direct GitHub CDN';
         if (dlEl && totalDl > 0) dlEl.textContent = `${totalDl.toLocaleString()} Downloads`;
         const arm64 = assets.find(a => a.name && a.name.includes('arm64'));
         if (arm64 && sizeEl) sizeEl.textContent = `${(arm64.size / (1024 * 1024)).toFixed(2)} MB`;
@@ -1606,6 +1612,30 @@
       timer = setInterval(() => goToSlide(current + 1), 2800);
     }
   })();
+</script>
+<script id="hero-downloads-sync-fix">
+(async function syncAllReleaseDownloads() {
+  const BASE_COUNT = 67;
+  const heroEl = document.getElementById('hero-total-downloads');
+  const dlEl = document.getElementById('gh-live-downloads');
+  try {
+    const res = await fetch('https://api.github.com/repos/AbdulTafeem/Lumina-Releases/releases?per_page=100');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const releases = await res.json();
+    const total = (Array.isArray(releases) ? releases : [releases]).reduce((sum, r) => {
+      const assets = Array.isArray(r.assets) ? r.assets : [];
+      return sum + assets.reduce((aSum, a) => aSum + (a.download_count || 0), 0);
+    }, 0);
+    const finalCount = Math.max(total, BASE_COUNT);
+    const label = finalCount.toLocaleString() + ' Total Downloads';
+    if (heroEl) heroEl.textContent = label;
+    if (dlEl) dlEl.textContent = label;
+  } catch (e) {
+    const fallbackLabel = '67 Total Downloads';
+    if (heroEl) heroEl.textContent = fallbackLabel;
+    if (dlEl) dlEl.textContent = fallbackLabel;
+  }
+})();
 </script>
 </body>
 </html>
