@@ -160,16 +160,7 @@
       perspective: 1500px;
     }
 
-    .phone-bezel-silver {
-      transform-style: preserve-3d;
-      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-      background: linear-gradient(145deg, #FFFFFF 0%, #F1F3F6 50%, #E4E7EC 100%);
-      box-shadow:
-        0 35px 80px -18px rgba(45, 24, 20, 0.18),
-        0 10px 25px -5px rgba(37, 82, 155, 0.08),
-        0 0 0 1px rgba(0, 0, 0, 0.08),
-        inset 0 2px 3px rgba(255, 255, 255, 1);
-    }
+    .phone-bezel-silver { position: relative; padding: 3px !important; border-radius: 46px !important; background: linear-gradient(135deg, #B55872 0%, #6E253A 18%, #2B0B14 48%, #4F1727 76%, #9E4760 100%) !important; border: 1px solid rgba(242, 164, 186, 0.65) !important; box-shadow: 0 36px 76px -18px rgba(32, 7, 14, 0.45), 0 10px 24px -6px rgba(0, 0, 0, 0.22), inset 0 1px 1.5px rgba(255, 228, 236, 0.75), inset 0 -1px 1.5px rgba(255, 196, 214, 0.35), inset 0 0 0 1px rgba(180, 88, 114, 0.4) !important; } .phone-bezel-silver::before { content: ""; position: absolute; left: -2.5px; top: 86px; width: 2.5px; height: 20px; border-radius: 3px 0 0 3px; background: linear-gradient(180deg, #B55872, #3A101C); box-shadow: 0 32px 0 #5E1E30, 0 66px 0 #5E1E30; pointer-events: none; } .phone-bezel-silver::after { content: ""; position: absolute; right: -2.5px; top: 118px; width: 2.5px; height: 46px; border-radius: 0 3px 3px 0; background: linear-gradient(180deg, #B55872, #3A101C); box-shadow: 0 78px 0 rgba(168, 76, 102, 0.85); pointer-events: none; } .phone-bezel-silver > div { border-radius: 43px !important; border: 3.5px solid #060608 !important; position: relative; overflow: hidden; box-shadow: inset 0 0 0 0.75px rgba(255, 225, 234, 0.22); }  
 
     /* Scalloped 12-Point Star Mask (Editorial Player) */
     .scalloped-star {
@@ -315,8 +306,8 @@
 
   
 </style>
-</head>
-<body class="selection:bg-[#FF6B3D]/20 selection:text-[#2D1814]">
+<meta property="og:title" content="Lumina Music v5.7.0 — Refracted in Liquid Glass" /><meta property="og:description" content="120fps Liquid Glass, 8 Player Styles, Strict Snow White & OLED Black isolation, and 3D Plush Hello Kitty Cute Mode designed by Avnisha." /><meta property="og:image" content="https://abdultafeem.github.io/Lumina-Releases/50-player-hero.png" /><style>html{scroll-behavior:smooth}#prom-bar{position:fixed;top:0;left:0;height:2.5px;width:0%;z-index:9999;background:linear-gradient(90deg,#FF5436,#F25287,#25529B);pointer-events:none;transition:width 80ms linear}nav a.nav-active{color:#FF5436!important;font-weight:800}</style></head>
+<div id="prom-bar"></div><body class="selection:bg-[#FF6B3D]/20 selection:text-[#2D1814]">
 
   <!-- Soft Warm Alabaster & Cobalt Daylight Orbs -->
   
@@ -380,17 +371,12 @@
         <a href="#screenshots" class="hover:text-[#2D1814] transition-colors">Screenshots</a>
         <a href="#styles-wheel" class="hover:text-[#2D1814] transition-colors">8 Player Styles</a>
         <a href="#optics" class="hover:text-[#2D1814] transition-colors">Liquid Optics</a>
-        <a href="#whats-new" class="hover:text-[#2D1814] transition-colors font-semibold text-[#F25287]">What's New</a> <a href="#creator" class="hover:text-[#2D1814] transition-colors">Creator</a>
+        <a href="#whats-new" class="hover:text-[#2D1814] transition-colors font-semibold text-[#F25287]">What's New</a> <a href="#download" class="hover:text-[#2D1814] transition-colors">Creator</a>
       </div>
 
       <!-- Primary CTA Pill -->
       <div class="flex items-center gap-2.5">
-        <button onclick="openDownloadModal()" class="px-4 sm:px-5 py-2.5 rounded-full bg-[#2D1814] text-white font-semibold text-xs sm:text-sm shadow-[0_8px_22px_rgba(45,24,20,0.22)] hover:bg-[#FF6B3D] hover:scale-[1.03] active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/>
-          </svg>
-          <span>Download APK</span>
-        </button>
+        <a href="#screenshots" class="px-4 sm:px-5 py-2.5 rounded-full bg-[#2D1814] text-white font-semibold text-xs sm:text-sm shadow-md hover:bg-[#42251F] transition active:scale-95 flex items-center gap-2"><span>Explore App ↓</span></a>
       </div>
     </nav>
   </header>
@@ -420,15 +406,7 @@
 
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-          <button onclick="openDownloadModal()" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#FF6B3D] to-[#E85325] text-white font-bold text-sm sm:text-base shadow-[0_16px_38px_rgba(255,107,61,0.34)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3.5 cursor-pointer">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-            </svg>
-            <div class="text-left">
-              <div class="leading-tight">Download Lumina v5.7.0</div>
-              <div class="text-[11px] font-medium text-white/90">Android ARM64 · 8.74 MB · Direct Release APK</div>
-            </div>
-          </button>
+          <a href="#screenshots" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-gradient-to-r from-[#FF6B3D] to-[#E85325] text-white font-bold text-sm sm:text-base shadow-[0_18px_38px_-10px_rgba(232,83,37,0.45)] hover:brightness-105 transition active:scale-95 flex items-center justify-center gap-3"><div class="text-left"><div class="leading-tight">Explore Lumina v5.7.0 ↓</div><div class="text-[11px] font-medium text-white/90">120fps Liquid Glass · 8 Styles · Optics Lab · Kitty Mode</div></div></a>
 
           <a href="#screenshots" class="w-full sm:w-auto px-6 py-4 rounded-2xl liquid-glass-white text-[#2D1814] font-bold text-sm sm:text-base hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
             <span>Explore App Screens</span>
@@ -847,9 +825,9 @@
       <section id="whats-new" class="max-w-5xl mx-auto pt-28 sm:pt-36 reveal-up">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF0F6] border border-[#FF6B9D]/30 text-[#F25287] text-xs font-extrabold tracking-wide uppercase mb-4">
-            <span>Lumina v5.7.0 Changelog</span>
+            <span>What's New in v5.7.0</span>
             <span>·</span>
-            <span>Kitty Planned &amp; Designed by Avnisha</span>
+            <span>Avnisha Edition</span>
           </div>
           <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-[#1D1D1F]">
             Engineered for 120fps. <span class="text-lumina-gradient">Personalized for You.</span>
@@ -876,7 +854,7 @@
               <span class="px-3 py-1 rounded-full bg-[#F5F5F7] text-[#1D1D1F] border border-black/10 text-[11px] font-bold uppercase tracking-wider">Theme Engine</span>
               <span class="text-xs font-extrabold text-[#1D1D1F]">Snow White &amp; OLED Black</span>
             </div>
-            <h3 class="text-lg font-extrabold text-[#1D1D1F]">Strict Male &amp; Others Theme Isolation</h3>
+            <h3 class="text-lg font-extrabold text-[#1D1D1F]">Pure Palette Isolation</h3>
             <p class="text-xs sm:text-sm text-[#5C4945] mt-2 leading-relaxed">
               Switching to <strong class="text-[#1D1D1F]">Male</strong> or <strong class="text-[#1D1D1F]">Others</strong> instantly resets the entire color palette to pure Apple Music Snow White (<code class="px-1 rounded bg-black/5">#FFFFFF</code>) or true OLED Black (<code class="px-1 rounded bg-black/5">#000000</code>) with zero pastel tint bleed.
             </p>
@@ -884,7 +862,7 @@
 
           <div class="rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-[#FFF9FC] to-[#FFEBF3] border border-[#FF6B9D]/30 shadow-[0_18px_40px_-15px_rgba(242,82,135,0.14)]">
             <div class="flex items-center justify-between mb-3">
-              <span class="px-3 py-1 rounded-full bg-[#F25287] text-white text-[11px] font-bold uppercase tracking-wider">Female Cute Mode</span>
+              <span class="px-3 py-1 rounded-full bg-[#F25287] text-white text-[11px] font-bold uppercase tracking-wider">Kitty Cute Mode</span>
               <span class="text-xs font-extrabold text-[#F25287]">Live Audio Sync</span>
             </div>
             <h3 class="text-lg font-extrabold text-[#1D1D1F]">Beat-Synced Dancing &amp; Cozy Seated Pose</h3>
@@ -898,7 +876,7 @@
               <span class="px-3 py-1 rounded-full bg-white text-[#F25287] border border-[#FF6B9D]/30 text-[11px] font-bold uppercase tracking-wider">Design Credit</span>
               <span class="text-xs font-extrabold text-[#F25287]">Avnisha Edition</span>
             </div>
-            <h3 class="text-lg font-extrabold text-[#1D1D1F]">Kitty Theme Planned &amp; Designed by Avnisha</h3>
+            <h3 class="text-lg font-extrabold text-[#1D1D1F]">Kitty Mode, Planned &amp; Designed by Avnisha</h3>
             <p class="text-xs sm:text-sm text-[#5C4945] mt-2 leading-relaxed">
               Concept, pastel color harmony, peeking Spatial Mix companion placement, and bouquet character styling thoughtfully planned and designed by <strong class="text-[#F25287]">Avnisha</strong>.
             </p>
@@ -907,7 +885,7 @@
       </section>
 
       <!-- CREATOR & DIRECT DOWNLOAD CALLOUT -->
-    <section id="creator" class="max-w-5xl mx-auto pt-28 sm:pt-36 reveal-up">
+    <section id="download" data-creator="true" class="max-w-5xl mx-auto pt-28 sm:pt-36 reveal-up">
       <div class="liquid-glass-white rounded-[38px] p-8 sm:p-12 text-center space-y-6 relative overflow-hidden">
         <!-- Centered 4K Liquid Glass Squircle Emblem -->
         <div class="mx-auto w-20 h-20 rounded-[26px] flex items-center justify-center bg-gradient-to-br from-white via-[#FFF6F2] to-[#EAF1FF] border border-white shadow-[0_18px_40px_rgba(45,24,20,0.12),0_4px_14px_rgba(255,107,61,0.18),inset_0_2px_3px_rgba(255,255,255,1)]">
@@ -1637,5 +1615,5 @@ if (heroDlEl) heroDlEl.textContent = totalDl > 0 ? `${totalDl.toLocaleString()} 
   }
 })();
 </script>
-</body>
+<script>(function(){const bar=document.getElementById("prom-bar");const secs=["screenshots","styles-wheel","optics","whats-new","download"];window.addEventListener("scroll",()=>{requestAnimationFrame(()=>{const st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;if(bar&&dh>0)bar.style.width=((st/dh)*100).toFixed(1)+"%";let cur="";secs.forEach(id=>{const el=document.getElementById(id);if(el&&st>=el.offsetTop-220)cur=id});document.querySelectorAll("nav a[href^=\"#\"]").forEach(a=>{a.classList.toggle("nav-active",a.getAttribute("href")==="#"+cur)})})},{passive:true})})();</script></body>
 </html>
